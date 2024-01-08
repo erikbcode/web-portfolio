@@ -55,17 +55,15 @@ const Experience = () => {
       <h2 className='text-4xl font-semibold select-none cursor-default hover:scale-110 transition-all duration-500'>
         Experience
       </h2>
-      <div className='flex flex-col gap-8'>
-        <div className='w-full flex flex-col gap-4'>
-          {jobs.map((job, index) => (
-            <>
-              <JobSection job={job} />
-              {index !== jobs.length - 1 ? (
-                <hr className='border-t border-white' />
-              ) : null}
-            </>
-          ))}
-        </div>
+      <div className='w-full flex flex-col gap-4'>
+        {jobs.map((job, index) => (
+          <React.Fragment key={job.companyName}>
+            <JobSection job={job} />
+            {index !== jobs.length - 1 ? (
+              <hr className='border-t border-white' />
+            ) : null}
+          </React.Fragment>
+        ))}
       </div>
     </section>
   )
@@ -85,8 +83,8 @@ const JobSection = ({ job }: { job: Job }) => {
         </div>
       </div>
       <ul className='self-start list-disc list-inside text-start flex flex-col gap-2'>
-        {job.bullets.map((bullet) => (
-          <li>{bullet}</li>
+        {job.bullets.map((bullet, index) => (
+          <li key={index}>{bullet}</li>
         ))}
       </ul>
     </div>
