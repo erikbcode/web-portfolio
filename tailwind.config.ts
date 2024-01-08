@@ -13,6 +13,9 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      textColor: {
+        'gradient-blue-purple': 'linear-gradient(to right, #85C1E9, #A385E9)',
+      },
     },
   },
   plugins: [],
