@@ -13,9 +13,9 @@ const skills = [
 
 const SkillsBar = () => {
   return (
-    <div className='relative w-full h-20 inline-flex flex-nowrap overflow-hidden'>
+    <div className='relative w-full h-20 inline-flex flex-nowrap overflow-hidden group mask-shadow-gradient-right'>
       <div
-        className={`absolute w-full h-full flex items-center animate-infinite-scroll`}
+        className={`absolute w-full h-full flex items-center animate-infinite-scroll group-hover:[animation-play-state:paused]`}
       >
         {skills.map((skill, index) => {
           return (
@@ -32,7 +32,7 @@ const SkillsBar = () => {
         })}
       </div>
       <div
-        className={`absolute w-full flex items-center left-[100%] animate-infinite-scroll`}
+        className={`absolute w-full flex items-center left-[100%] animate-infinite-scroll group-hover:[animation-play-state:paused]`}
       >
         {skills.map((skill, index) => {
           return (
