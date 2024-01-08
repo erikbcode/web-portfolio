@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      mask: {
+        'shadow-gradient-right':
+          'linear-gradient(to right, transparent 0, black 128px, black calc(100% - 200px), transparent 100%)',
+      },
       animation: {
         'infinite-scroll': 'infinite-scroll 20s linear infinite',
       },
@@ -27,6 +31,21 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ matchUtilities, theme }: any) {
+      matchUtilities(
+        {
+          mask: (value: string) => {
+            return {
+              mask: value,
+            }
+          },
+        },
+        {
+          values: theme('mask'),
+        }
+      )
+    },
+  ],
 }
 export default config
