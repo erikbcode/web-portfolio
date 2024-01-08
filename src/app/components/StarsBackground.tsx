@@ -2,7 +2,7 @@
 import { PointMaterial, Points } from '@react-three/drei'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { inSphere } from 'maath/random'
-import { useEffect, useRef, useState } from 'react'
+import { Suspense, useRef, useState } from 'react'
 
 const StarsBackground = () => {
   const ref: any = useRef()
@@ -11,17 +11,14 @@ const StarsBackground = () => {
   )
   const [starOpacity, setStarOpacity] = useState(0)
 
-  useEffect(() => {
-    const fadeStarsIn = () => {
-      setStarOpacity((opacity) => Math.min(opacity + 0.01, 1))
-    }
-    const interval = setInterval(fadeStarsIn, 10) // Adjust interval for fade speed
-    return () => clearInterval(interval) // Clear interval on unmount
-  })
-
   useFrame((state, delta) => {
     ref.current.rotation.x -= delta / 20
     ref.current.rotation.y -= delta / 30
+
+    // Gradually fade in stars
+    if (starOpacity < 1) {
+      setStarOpacity((opacity) => Math.min(opacity + 0.01, 1))
+    }
   })
   return (
     <group rotation={[0, 0, Math.PI / 4]}>
@@ -42,9 +39,11 @@ const StarsBackground = () => {
 const StarsCanvas = () => {
   return (
     <div className='w-full h-full fixed inset-0 bg-[#130720]'>
-      <Canvas camera={{ position: [0, 0, 1] }}>
-        <StarsBackground />
-      </Canvas>
+      <Suspense fallback={null}>
+        <Canvas camera={{ position: [0, 0, 1] }}>
+          <StarsBackground />
+        </Canvas>
+      </Suspense>
     </div>
   )
 }
