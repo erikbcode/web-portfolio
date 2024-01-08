@@ -7,7 +7,7 @@ const Intro = () => {
   return (
     <div className='relative min-h-screen flex flex-col justify-center items-center gap-8 text-center mx-4'>
       <Link href='/'>
-        <h1 className='text-4xl sm:text-7xl lg:text-9xl font-semibold hover:scale-110 text-white bg-gradient-to-tr from-emerald-500 to-violet-700 hover:text-transparent transition-all duration-300 bg-clip-text'>
+        <h1 className='text-4xl sm:text-7xl lg:text-9xl font-semibold hover:scale-110 text-white bg-gradient-to-tr from-pink-500 to-yellow-200 hover:text-transparent transition-all duration-300 bg-clip-text'>
           Erik Buinevicius
         </h1>
       </Link>
