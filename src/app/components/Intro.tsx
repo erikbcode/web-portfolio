@@ -1,9 +1,16 @@
+'use client'
 import { ChevronDown } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
 
 const Intro = () => {
+  const handleScrollDown = () => {
+    window.scrollTo({
+      top: document.getElementById('about')?.offsetTop,
+      behavior: 'smooth',
+    })
+  }
+
   return (
     <div className='relative min-h-screen flex flex-col justify-center items-center gap-8 text-center mx-4'>
       <Link href='/'>
@@ -12,7 +19,7 @@ const Intro = () => {
         </h1>
       </Link>
 
-      <h3 className='text-sm sm:text-lg'>
+      <h3 className='text-sm sm:text-lg select-none cursor-default'>
         Full stack software engineer with experience in Java, React, Next.js
       </h3>
       <div className='flex flex-row gap-8'>
@@ -45,7 +52,9 @@ const Intro = () => {
           />
         </Link>
       </div>
-      <ChevronDown className='w-10 h-10 md:w-20 md:h-20' />
+      <button onClick={handleScrollDown}>
+        <ChevronDown className='w-10 h-10 hover:text-pink-400 hover:scale-150 transition-all duration-500 md:w-20 md:h-20' />
+      </button>
     </div>
   )
 }
