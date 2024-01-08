@@ -20,7 +20,7 @@ const Intro = () => {
       </Link>
 
       <h3 className='text-sm sm:text-lg select-none cursor-default'>
-        Full stack software engineer.
+        Full-stack software engineer.
       </h3>
       <div className='flex flex-row gap-8'>
         <Link
