@@ -4,10 +4,17 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import { inSphere } from 'maath/random'
 import { Suspense, useRef, useState } from 'react'
 
+interface SphereProps {
+  radius: number
+}
+
 const StarsBackground = () => {
   const ref: any = useRef()
-  const [sphere] = useState(() =>
-    inSphere(new Float32Array(5000), { radius: 1.5 })
+  const [sphere] = useState(
+    () =>
+      inSphere(new Float32Array(5000), {
+        radius: 1.5,
+      } as SphereProps) as Float32Array
   )
   const [starOpacity, setStarOpacity] = useState(0)
 
@@ -20,6 +27,7 @@ const StarsBackground = () => {
       setStarOpacity((opacity) => Math.min(opacity + 0.01, 1))
     }
   })
+
   return (
     <group rotation={[0, 0, Math.PI / 4]}>
       <Points ref={ref} positions={sphere} stride={3} frustumCulled={false}>
