@@ -4,7 +4,7 @@ const About = () => {
       id='about'
       className='relative w-3/4 min-h-[50vh] flex flex-col justify-center items-center text-center gap-12 my-12'
     >
-      <h2 className='text-4xl font-semibold select-none cursor-default hover:scale-110 transition-all duration-500'>
+      <h2 className='relative top-4 text-4xl font-semibold select-none cursor-default hover:scale-110 transition-all duration-500'>
         About Me
       </h2>
       <p className='text-sm md:text-lg font-light select-none cursor-default'>

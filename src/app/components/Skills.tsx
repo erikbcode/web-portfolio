@@ -3,7 +3,7 @@ import SkillsBar from './SkillsBar'
 const Skills = () => {
   return (
     <section className='relative w-3/4 min-h-[50vh] flex flex-col justify-center items-center text-center gap-12 my-12'>
-      <h2 className='text-4xl font-semibold select-none cursor-default hover:scale-110 transition-all duration-500'>
+      <h2 className='relative top-4 text-4xl font-semibold select-none cursor-default hover:scale-110 transition-all duration-500'>
         Skills
       </h2>
       <SkillsBar />
