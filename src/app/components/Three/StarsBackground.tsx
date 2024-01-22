@@ -10,11 +10,10 @@ interface SphereProps {
 
 const StarsBackground = () => {
   const ref: any = useRef()
-  const [sphere] = useState(
-    () =>
-      inSphere(new Float32Array(5000), {
-        radius: 1.5,
-      } as SphereProps) as Float32Array
+  const [sphere] = useState(() =>
+    inSphere(new Float32Array(5001), {
+      radius: 1.5,
+    })
   )
   const [starOpacity, setStarOpacity] = useState(0)
 
